@@ -69,6 +69,14 @@ export function curPath(): string {
 }
 
 /**
+ * return the path of the logos folder
+ * @returns string  The path.
+ */
+export function logosPath(): string {
+    return "/logos/"
+}
+
+/**
  * Given a filename, replace its extension.
  * @param  {string} filename  The original filename.
  * @param  {string} newExt    The new extension.

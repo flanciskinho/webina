@@ -61,9 +61,13 @@ module.exports = merge(common, {
                 //     from: 'src/Webina/vina.worker.js',
                 //     to: 'vina.worker.js'
                 // },
+                //{
+                //    from: "src/styles/webina_logo.jpg",
+                //    to: "webina_logo.jpg",
+                //},
                 {
-                    from: "src/styles/webina_logo.jpg",
-                    to: "webina_logo.jpg",
+                    from: "src/styles/logos",
+                    to: "logos",
                 },
                 // {
                 //     from: 'src/styles/favicon.ico',

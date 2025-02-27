@@ -19,6 +19,20 @@ export function setup(): void {
         "store": store,
         "template": `
             <div class="container-fluid">
+
+                <b-navbar toggleable="lg" type="dark" variant="dark" class="mb-3">
+                    <b-navbar-brand href="#">webina ${VERSION}</b-navbar-brand>
+
+                    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+                    <b-collapse id="nav-collapse" is-nav>
+                        <b-navbar-nav>
+                            <b-nav-item href="#">Home</b-nav-item>
+                            <b-nav-item href="https://interreg-sudoe.eu/proyecto-interreg/repo-sudoe/" target="_blank">More Info</b-nav-item>
+                        </b-navbar-nav>
+                    </b-collapse>
+                </b-navbar>
+
                 <open-modal></open-modal>
                 <convert-file-modal></convert-file-modal>
                 <draw-smiles-modal></draw-smiles-modal>
@@ -28,11 +42,12 @@ export function setup(): void {
                     </b-jumbotron>
                 </div>
 
-                <b-jumbotron class="jumbo" style="background-image:url(${Utils.curPath()}webina_logo.jpg);" header="Webina ${VERSION}" lead="AutoDock Vina Ported to WebAssembly">
+<!--
+                <b-jumbotron class="jumbo" style="background-image:url(${Utils.logosPath()}webina_logo.jpg);" header="Webina ${VERSION}" lead="AutoDock Vina Ported to WebAssembly">
                     <p>Brought to you by the <a target="_blank" href="http://durrantlab.com">Durrant Lab</a>.</p>
                     <b-button variant="primary" target="_blank" href="http://durrantlab.com">More Info</b-button>
                 </b-jumbotron>
-
+-->
                 <b-card no-body class="mb-3">
                     <b-tabs v-model="tabIdx" card fill pills vertical content-class="mt-3"> <!-- vertical -->
                         <b-tab title="Input Parameters" active :disabled="parametersTabDisabled">
@@ -62,7 +77,42 @@ export function setup(): void {
                         </b-tab>
                     </b-tabs>
                 </b-card>
+
+
+
+                <b-container fluid id="footer">
+                    <b-row align-v="center">
+                        <b-col>
+                            <b-img fluid src="${Utils.logosPath()}cbmn-logo.png" alt="cbmn"></b-img>
+                        </b-col>
+                        <b-col>
+                            <b-img fluid src="${Utils.logosPath()}citic-logo.png" alt="CITIC"></b-img>
+                        </b-col>
+                        <b-col>
+                            <b-img fluid src="${Utils.logosPath()}cnrs-logo.png" alt="CNR"></b-img>
+                        </b-col>
+                        <b-col>
+                            <b-img fluid src="${Utils.logosPath()}csg-logo.png" alt="CSG"></b-img>
+                        </b-col>
+                        <b-col>
+                            <b-img fluid src="${Utils.logosPath()}interreg_sudoe-logo.png" alt="Interreg Sudoe"></b-img>
+                        </b-col>
+                        <b-col>
+                            <b-img fluid src="${Utils.logosPath()}mduse-logo.png" alt="mduse"></b-img>
+                        </b-col>
+                        <b-col>
+                            <b-img fluid src="${Utils.logosPath()}spsp-logo.png" alt="spsp"></b-img>
+                        </b-col>
+                        <b-col>
+                            <b-img fluid src="${Utils.logosPath()}udc-logo.png" alt="UDC"></b-img>
+                        </b-col>
+                        <b-col>
+                            <b-img fluid src="${Utils.logosPath()}usc-logo.png" alt="USC"></b-img>
+                        </b-col>
+                    </b-row>
+                </b-container>
             </div>
+
         `,
 
         /**
