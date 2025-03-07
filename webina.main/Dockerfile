@@ -1,4 +1,5 @@
-FROM node:22 as builder
+FROM node:22 AS builder
+
 
 WORKDIR /app
 
@@ -18,6 +19,20 @@ RUN npm run build
 FROM python:3.13-slim
 
 WORKDIR /app
+
+ENV APP_BIN=/usr/local/bin
+
+RUN apt-get clean \
+ && apt-get -qq update  -y \
+# install nginx
+ && apt-get -qq install -y --no-install-recommends  nginx-extras curl \
+ && rm -rf /var/lib/apt/lists/*
+
+# Generate healthcheck and log dir
+RUN printf "#\!/bin/bash\ncurl -s -f localhost:80/ || exit 1" > ${APP_BIN}/healthcheck \
+ && chmod +x ${APP_BIN}/healthcheck
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=2 \
+        CMD healthcheck
 
 COPY --from=builder /app/dist /app
 
