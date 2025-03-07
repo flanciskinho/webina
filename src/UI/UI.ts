@@ -21,14 +21,14 @@ export function setup(): void {
             <div class="container-fluid">
 
                 <b-navbar toggleable="lg" type="dark" variant="dark" class="mb-3">
-                    <b-navbar-brand href="#">webina ${VERSION}</b-navbar-brand>
+                    <b-navbar-brand href="#">SUDOE wine ${VERSION}</b-navbar-brand>
 
                     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
                     <b-collapse id="nav-collapse" is-nav>
                         <b-navbar-nav>
                             <b-nav-item href="#">Home</b-nav-item>
-                            <b-nav-item href="https://interreg-sudoe.eu/proyecto-interreg/repo-sudoe/" target="_blank">More Info</b-nav-item>
+                            <b-nav-item href="/more-info.html" target="_blank">More Info</b-nav-item>
                         </b-navbar-nav>
                     </b-collapse>
                 </b-navbar>
@@ -37,17 +37,12 @@ export function setup(): void {
                 <convert-file-modal></convert-file-modal>
                 <draw-smiles-modal></draw-smiles-modal>
                 <div id="no-mobile">
-                    <b-jumbotron class="jumbo" header="Webina ${VERSION}" lead="AutoDock Vina Ported to WebAssembly">
-                        <p>Webina ${VERSION} is not designed to work on mobile phones. Please use a device with a larger screen.</p>
+                    <b-jumbotron class="jumbo" header="SUDOE wine ${VERSION}" lead="AutoDock Vina Ported to WebAssembly">
+                        <p>SUDOE wine ${VERSION} is not designed to work on mobile phones. Please use a device with a larger screen.</p>
                     </b-jumbotron>
                 </div>
 
-<!--
-                <b-jumbotron class="jumbo" style="background-image:url(${Utils.logosPath()}webina_logo.jpg);" header="Webina ${VERSION}" lead="AutoDock Vina Ported to WebAssembly">
-                    <p>Brought to you by the <a target="_blank" href="http://durrantlab.com">Durrant Lab</a>.</p>
-                    <b-button variant="primary" target="_blank" href="http://durrantlab.com">More Info</b-button>
-                </b-jumbotron>
--->
+
                 <b-card no-body class="mb-3">
                     <b-tabs v-model="tabIdx" card fill pills vertical content-class="mt-3"> <!-- vertical -->
                         <b-tab title="Input Parameters" active :disabled="parametersTabDisabled">
@@ -60,7 +55,7 @@ export function setup(): void {
                                 <vina-existing-output></vina-existing-output>
                             </b-card-text>
                         </b-tab>
-                        <b-tab title="Running Webina" :disabled="runningTabDisabled">
+                        <b-tab title="Running SUDOE wine" :disabled="runningTabDisabled">
                             <b-card-text>
                                 <vina-running></vina-running>
                             </b-card-text>

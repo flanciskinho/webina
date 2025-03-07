@@ -120,7 +120,7 @@ export function setup(): void {
         "template": `
             <sub-section v-if="vinaParamsValidate" title="Run Vina from the Command Line">
                 <p>
-                    Webina is convenient but slower than stand-alone Vina.
+                    SUDOE wine is convenient but slower than stand-alone Vina.
                     You may wish to <a href="http://vina.scripps.edu/download.html"
                     target="_blank">download a binary copy</a>
                     of Vina to run from the command line instead.

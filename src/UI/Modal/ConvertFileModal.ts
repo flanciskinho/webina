@@ -131,7 +131,7 @@ let methodsFunctions = {
 
             if (successMsgs.length !== 0) {
                 let overallMsg = successMsgs.map((m, i) => { return "(" + (i + 1).toString() + ") " + m; }).join(" ");
-                this["$bvModal"]["msgBoxOk"]("To convert your file to PDBQT, Webina had to make the following modifications: " + overallMsg, {
+                this["$bvModal"]["msgBoxOk"]("To convert your file to PDBQT, SUDOE wine had to make the following modifications: " + overallMsg, {
                     "title": "Warning: File Too Big!",
                 });
             }
@@ -275,7 +275,7 @@ export function setup(): void {
               id="convert-msg-modal" title="Convert File to PDBQT"
               @ok="beginConvert" @cancel="cancelPressed">
                 <p class="my-4">
-                    Webina works with PDBQT files, not {{currentExt}} files. We suggest you:
+                    SUDOE wine works with PDBQT files, not {{currentExt}} files. We suggest you:
                     <span v-if="this['currentType']==='receptor'">
                         <ol>
                             <li>Add hydrogen atoms using <a href="http://www.poissonboltzmann.org/" target="_blank">PDB2PQR</a></li>
@@ -329,7 +329,7 @@ export function setup(): void {
                     PDBQTConvert is an optional GPL-licensed helper app
                     built on <a
                     href="https://github.com/partridgejiang/cheminfo-to-web/tree/master/OpenBabel/OpenBabel-js" target="_blank">
-                    OpenBabel JS</a>. It communicates with Webina at "arms
+                    OpenBabel JS</a>. It communicates with SUDOE wine at "arms
                     length" via an iframe.
                 </small>
             </b-modal>`,

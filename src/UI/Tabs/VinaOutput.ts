@@ -80,7 +80,7 @@ export function setup(): void {
                     <form-group v-if="stdOut !== ''"
                         label="Standard Output"
                         id="input-group-standard-output"
-                        description="Webina's standard output, including the docking scores and RMSD values."
+                        description="SUDOE wine's standard output, including the docking scores and RMSD values."
                         :labelToLeft="false"
                     >
                         <b-form-textarea
@@ -100,7 +100,7 @@ export function setup(): void {
                     <form-group
                         label="Output PDBQT File"
                         id="input-group-standard-output"
-                        description="Webina's output file with the docked ligand poses."
+                        description="SUDOE wine's output file with the docked ligand poses."
                         :labelToLeft="false"
                     >
                         <b-form-textarea

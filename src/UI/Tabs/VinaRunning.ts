@@ -15,9 +15,9 @@ export function setup(): void {
             <div class="text-center">
                 <b-spinner style="width: 4rem; height: 4rem;" label="Working"></b-spinner>
                 <br /><br />
-                <p>Running Webina in your browser. Docking may take some minutes.</p>
+                <p>Running SUDOE wine in your browser. Docking may take some minutes.</p>
                 <p>This page may become unresponsive while performing calculations.
-                   Need to stop Webina but can't close this tab? Use your browser or
+                   Need to stop SUDOE wine but can't close this tab? Use your browser or
                    operating-system Task Manager.</p>
             </div>
         `,

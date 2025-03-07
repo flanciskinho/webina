@@ -128,7 +128,7 @@ export function setup(): void {
                     style="margin-bottom:1.4rem !important;"
                 >
                     <b-card-text>
-                        Use this tab if you've already run Webina or Vina and
+                        Use this tab if you've already run SUDOE wine or Vina and
                         have an existing docked-ligand PDBQT output file.
                     </b-card-text>
                 </b-card>
@@ -144,7 +144,7 @@ export function setup(): void {
                     <file-input
                         label="Docked Output"
                         id="output"
-                        description="The Webina/Vina output file (PDBQT, OUT, VINA, or TXT) containing docked ligand poses."
+                        description="The SUDOE wine/Vina output file (PDBQT, OUT, VINA, or TXT) containing docked ligand poses."
                         accept=".pdbqt, .out, .vina, .txt"
                     ></file-input>
 

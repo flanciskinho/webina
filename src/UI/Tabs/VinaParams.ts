@@ -306,8 +306,8 @@ let methodsFunctions = {
      */
     showWebinaError(message: string): void {
         store.commit("openModal", {
-            title: "Webina Error!",
-            body: "<p>Webina returned the following error: <code>" + message + "</code></p>"
+            title: "SUDOE wine Error!",
+            body: "<p>SUDOE wine returned the following error: <code>" + message + "</code></p>"
         });
     }
 }
@@ -335,7 +335,7 @@ export function setup(): void {
                         style="margin-bottom:1.4rem !important;"
                     >
                         <b-card-text>
-                            Use this tab to setup a Webina job in your browser.
+                            Use this tab to setup a SUDOE wine job in your browser.
                             Specify the input files and Vina parameters below.
                         </b-card-text>
                     </b-card>
@@ -427,7 +427,7 @@ export function setup(): void {
 
                         <numeric-input
                             label="Exhaustiveness" id="exhaustiveness"
-                            description="Exhaustiveness of the global search (roughly proportional to time). Webina defaults to 4 to speed execution in the browser, but the Vina default is 8. Use 8 when accuracy is critical."
+                            description="Exhaustiveness of the global search (roughly proportional to time). SUDOE wine defaults to 4 to speed execution in the browser, but the Vina default is 8. Use 8 when accuracy is critical."
                             placeholder="8"
                             :default="8"
                             :min="1"
@@ -447,7 +447,7 @@ export function setup(): void {
                                             style="margin-bottom:1.4rem !important;"
                                         >
                                             <b-card-text>
-                                                Optional parameters to control Webina output.
+                                                Optional parameters to control SUDOE wine output.
                                             </b-card-text>
                                         </b-card>
 
@@ -548,7 +548,7 @@ export function setup(): void {
                     <vina-commandline></vina-commandline>
 
                     <span style="display:none;">{{validate(false)}}</span>  <!-- Hackish. Just to make reactive. -->
-                    <form-button @click.native="onSubmitClick" variant="primary" cls="float-right mb-4">Start Webina</form-button>
+                    <form-button @click.native="onSubmitClick" variant="primary" cls="float-right mb-4">Start</form-button>
 
                 </b-form>
                 <div v-else>
