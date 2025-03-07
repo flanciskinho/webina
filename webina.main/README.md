@@ -312,6 +312,22 @@ linked/copied under `<emsdk_path>/fastcomp/emscripten/system/include/`.
 A detailed description of this process is beyond the scope of this README
 file, though many helpful tips have been posed online. -->
 
+## Running Webina with docker containers
+
+
+Create docker image: 
+```
+docker build -t webina_main:1.0.5 .
+```
+
+Run a docker container:
+
+```
+docker run -d --rm -p 80:80 webina_main:1.0.5
+```
+
+Open web browser with the following url [http://localhost](http://localhost)
+
 ## Notes on User Analytics ##
 
 In some circumstances, the Webina web app may report usage statistics to

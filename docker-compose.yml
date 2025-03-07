@@ -1,0 +1,116 @@
+version: '3.7'
+
+services:
+    webina_proxy:
+      image: webina_proxy:1.0.5
+      networks:
+        - webinanet
+        - proxynet
+      #expose:
+      #  - 80
+      ports:
+        - "80:80"
+      volumes:
+        - /etc/localtime:/etc/localtime:ro
+      environment:
+        - NAME=node-{{.Node.Hostname}}
+        - TZ=Europe/Madrid
+      sysctls:
+        net.core.somaxconn: 1024 # change the maximun number of connections
+      hostname: "webina_proxy-{{.Task.Slot}}"
+      depends_on:
+        - "mongo"
+        - "redis"
+      deploy:
+        labels:
+          - "traefik.enable=true"
+          - "traefik.http.routers.webina.rule=Host(`webina.com`)"
+          - "traefik.http.routers.webina.entrypoints=websecure"
+          - "traefik.http.routers.webina.tls.certresolver=leresolver"
+          - "traefik.http.services.webina.loadbalancer.server.port=80" # Siempre debemos definir un puerto.
+        replicas: 1
+        resources:
+          limits:
+            cpus: '1'
+            memory: 1G
+          reservations:
+            cpus: '0.1'
+            memory: 128M
+        update_config:
+          parallelism: 1
+          delay: 60s
+          order: "start-first"
+          failure_action: "rollback"
+        restart_policy:
+          condition: any
+    webina_main:
+      image: webina_main:1.0.5
+      networks:
+        - webinanet
+      expose:
+        - 80
+      volumes:
+        - /etc/localtime:/etc/localtime:ro
+      sysctls:
+        net.core.somaxconn: 1024 # change the maximun number of connections
+      hostname: "webina_main-{{.Task.Slot}}"
+      environment:
+        - NAME=node-{{.Node.Hostname}}
+        - TZ=Europe/Madrid
+      deploy:
+        replicas: 1
+        resources:
+          limits:
+            cpus: '2'
+            memory: 4G
+          reservations:
+            cpus: '1'
+            memory: 2G
+        update_config:
+          parallelism: 1
+          delay: 60s
+          order: "start-first"
+          failure_action: "rollback"
+        restart_policy:
+            condition: any
+    webina_moreinfo:
+      image: webina_moreinfo:1.0.5
+      networks:
+        - webinanet
+      expose:
+        - 80
+      volumes:
+        - /etc/localtime:/etc/localtime:ro
+      sysctls:
+        net.core.somaxconn: 1024 # change the maximun number of connections
+      hostname: "webina_moreinfo-{{.Task.Slot}}"
+      environment:
+        - NAME=node-{{.Node.Hostname}}
+        - TZ=Europe/Madrid
+      deploy:
+        replicas: 1
+        resources:
+            limits:
+              cpus: '1'
+              memory: 1G
+            reservations:
+              cpus: '0.1'
+              memory: 128M
+        update_config:
+              parallelism: 1
+              delay: 60s
+              order: "start-first"
+              failure_action: "rollback"
+        restart_policy:
+          condition: any
+
+
+
+networks:
+    proxynet:
+        external: true
+    webinanet:
+
+# docker network create --driver overlay proxynet
+# docker stack deploy --with-registry-auth -c docker-compose.yml webina
+

@@ -1,0 +1,10 @@
+{
+  "app_version":"1.0.5",
+  "detail":"The requested resource was not found on this server",
+  "error":"Not Found",
+  "exception":"NotFoundException",
+  "message":"The method received in the request-line is known by the origin server but not supported by the target resource.",
+  "status":404,
+  "title":"The requested resource was not found on this server."
+}
+
